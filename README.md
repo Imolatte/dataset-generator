@@ -109,6 +109,7 @@ dataset-generator/
 │   └── validator.py             # Валидация артефактов
 ├── example_input_raw_support_faq_and_tickets.md   # Пример: FAQ интернет-магазина
 ├── example_input_raw_operator_quality_checks.md   # Пример: проверки оператора медклиники
+├── example_input_raw_doctor_booking.md             # Пример: запись к врачу (стоматология)
 ├── out/
 │   ├── support/                 # Предгенерированные артефакты (support_bot)
 │   └── operator_quality/        # Предгенерированные артефакты (operator_quality)
@@ -243,6 +244,7 @@ python -m dataset_generator validate --out out/operator_quality
 |---|---|---|
 | `example_input_raw_support_faq_and_tickets.md` | FAQ + тикеты интернет-магазина "ТехноМаркет" | RU |
 | `example_input_raw_operator_quality_checks.md` | Стандарт качества оператора медклиники "Здоровье Плюс" | RU |
+| `example_input_raw_doctor_booking.md` | Запись к врачу — стоматология "ДентаЛюкс" (усложнённый, разрозненные источники) | RU |
 
 Документы написаны в свободном формате (как реальные бизнес-документы). Программа сама определяет тип кейса (`support_bot` / `operator_quality`) по содержимому.
 
