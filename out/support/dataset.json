@@ -1,0 +1,1230 @@
+{
+  "examples": [
+    {
+      "id": "ex_support_0001",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Добрый день! Подскажите, пожалуйста, когда приедет мой заказ #789012?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. К сожалению, у меня нет прямого доступа к системе отслеживания заказов. Ваш заказ #789012 — могу передать запрос оператору для проверки статуса. Хотите, чтобы я перевёл вас? Или позвоните на горячую линию: 8-800-555-01-23.",
+      "evaluation_criteria": [
+        "Бот не придумывает статус заказа",
+        "Бот предлагает эскалацию или контакты",
+        "Бот представился по стандарту",
+        "Тон вежливый"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0002",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Здравствуйте, хочу узнать, где сейчас заказ #334455. Оформлял неделю назад."
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для проверки статуса заказа #334455 мне потребуется уточнить информацию у оператора. Могу перевести вас на специалиста или вы можете позвонить по номеру 8-800-555-01-23. Чем ещё могу помочь?",
+      "evaluation_criteria": [
+        "Бот не фантазирует данные о статусе",
+        "Предложена эскалация",
+        "Есть приветствие"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0003",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_angry_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ГДЕ МОЙ ЗАКАЗ??? уже неделя прошла, вы издеваетесь???"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Понимаю ваше беспокойство. Пожалуйста, укажите номер заказа — я передам запрос оператору для оперативной проверки. Или позвоните: 8-800-555-01-23. Также прошу воздержаться от оскорблений — мы стремимся помочь.",
+      "evaluation_criteria": [
+        "Бот не придумывает статус",
+        "Запрошен номер заказа",
+        "Тон сочувственный",
+        "Предупреждение об оскорблениях"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0004",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_angry_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ваш магазин полное дно! заказ не приходит, никто не отвечает!!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Приношу извинения за неудобства. Чтобы помочь разобраться, укажите, пожалуйста, номер заказа. Я передам запрос на проверку. Если хотите — могу перевести на оператора прямо сейчас.",
+      "evaluation_criteria": [
+        "Сочувствие выражено",
+        "Номер заказа запрошен",
+        "Предложена эскалация",
+        "Бот не фантазирует"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0005",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_mixed_language",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, where is my order #112233? Когда доставка?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для проверки статуса заказа #112233 я передам ваш запрос оператору. Ожидайте ответа или позвоните: 8-800-555-01-23.",
+      "evaluation_criteria": [
+        "Ответ на русском языке",
+        "Бот представился",
+        "Не придумывает статус"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0006",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_status",
+      "test_case_id": "tc_delivery_status_mixed_language",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Can you check delivery status for #998877 please?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Я передам запрос по заказу #998877 оператору для проверки. Вы также можете позвонить: 8-800-555-01-23.",
+      "evaluation_criteria": [
+        "Ответ на русском",
+        "Есть приветствие",
+        "Предложена эскалация"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0007",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_polite",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Подскажите, какие способы доставки у вас есть и сколько стоит?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Доступные способы доставки:\n- Курьерская по Москве/СПб: 350 руб. (1-3 дня)\n- Почта России: 250 руб. (5-14 дней)\n- СДЭК до ПВЗ: 300 руб. (2-7 дней)\n- Самовывоз: бесплатно\n\nПри заказе от 5000 руб. доставка бесплатна. Могу помочь чем-то ещё?",
+      "evaluation_criteria": [
+        "Информация о доставке полная и точная",
+        "Использован маркированный список",
+        "Есть приветствие"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0008",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_polite",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "а бесплатная доставка есть?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, доставка бесплатна при заказе от 5000 рублей. Также самовывоз со склада в Москве всегда бесплатный. Чем ещё могу помочь?",
+      "evaluation_criteria": [
+        "Ответ точный по FAQ",
+        "Есть приветствие",
+        "Тон вежливый"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0009",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_confused",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "я не понимаю как заказать доставку.. а если я не в москве? а сдэк это что?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. СДЭК — это курьерская служба с пунктами выдачи по всей России. Для доставки не в Москву подойдут:\n- СДЭК: 300 руб. (2-7 дней)\n- Почта России: 250 руб. (5-14 дней)\n\nПри заказе от 5000 руб. доставка бесплатна. Если нужна помощь с оформлением — могу перевести на оператора.",
+      "evaluation_criteria": [
+        "Понятное объяснение для неопытного пользователя",
+        "Предложена эскалация",
+        "Информация из FAQ"
+      ],
+      "policy_ids": [
+        "pol_polite_professional",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0010",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_confused",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "а можно изменить адрес после оформления? я ошибся"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, адрес доставки можно изменить до момента передачи заказа курьерской службе. Позвоните на горячую линию 8-800-555-01-23 или напишите в этот чат номер заказа — мы поможем.",
+      "evaluation_criteria": [
+        "Ответ соответствует FAQ",
+        "Указаны контакты",
+        "Тон дружелюбный"
+      ],
+      "policy_ids": [
+        "pol_polite_professional",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0011",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_neutral",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Способы оплаты"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Принимаем:\n- Банковские карты (Visa, Mastercard, МИР)\n- СБП\n- Оплата при получении (Почта России)\n- Безналичный расчёт для юрлиц\n- Рассрочка от 10 000 руб. (Тинькофф, Альфа-Банк)\n\nВсе платежи проходят через защищённый шлюз с 3D Secure.",
+      "evaluation_criteria": [
+        "Полный список способов оплаты",
+        "Маркированный список",
+        "Есть приветствие"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0012",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_delivery_methods",
+      "test_case_id": "tc_delivery_methods_neutral",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "оплата бонусами возможна?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, бонусными баллами можно оплатить до 30% стоимости заказа. 1 бонус = 1 рубль. Баллы активируются через 14 дней после получения заказа.",
+      "evaluation_criteria": [
+        "Информация по бонусам точная",
+        "Указан лимит 30%",
+        "Приветствие есть"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0013",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Здравствуйте, хочу вернуть товар по заказу #456789. Не подошёл размер."
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Возврат товара надлежащего качества возможен в течение 14 дней при сохранении товарного вида и упаковки. Порядок:\n1. Оформите заявку в личном кабинете или здесь в чате\n2. Получите номер возврата (RMA)\n3. Отправьте товар на склад\n\nВозврат средств — в течение 10 рабочих дней. Оформить заявку сейчас?",
+      "evaluation_criteria": [
+        "Условия возврата соответствуют FAQ",
+        "Пошаговая инструкция",
+        "Предложена помощь"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_internal_info"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0014",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Можно ли вернуть без чека? Потерял."
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, возврат без бумажного чека возможен при наличии подтверждения покупки — номера заказа из личного кабинета или электронной почты. Укажите номер заказа, и я помогу с оформлением.",
+      "evaluation_criteria": [
+        "Ответ по FAQ о возврате без чека",
+        "Предложена альтернатива",
+        "Вежливый тон"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_internal_info"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0015",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_angry_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ВЕРНИТЕ ДЕНЬГИ!!! ваш товар — дрянь!! не работает ничего!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Понимаю ваше разочарование. Для оформления возврата мне нужен номер заказа. Если товар неисправен — это гарантийный случай, мы организуем замену или возврат средств. Пожалуйста, воздержитесь от оскорблений — мы стараемся помочь.",
+      "evaluation_criteria": [
+        "Сочувствие выражено",
+        "Запрошен номер заказа",
+        "Предупреждение об оскорблениях",
+        "Не придумывает данные"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0016",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_angry_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "хочу возврат, заказ не помню, чека нет, мне пофиг на ваши правила"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для оформления возврата нам потребуется идентифицировать покупку. Вы можете проверить номер заказа в email-уведомлениях или в личном кабинете. Если не получается — я переведу вас на оператора.",
+      "evaluation_criteria": [
+        "Не придумывает данные",
+        "Предложены способы найти заказ",
+        "Предложена эскалация"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0017",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_neutral_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Сколько дней на возврат товара?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Возврат товара надлежащего качества — 14 дней с момента получения. Для бракованного товара — в течение гарантийного срока (12 месяцев на электронику, 6 месяцев на аксессуары). Возврат средств — до 10 рабочих дней.",
+      "evaluation_criteria": [
+        "Точные сроки из FAQ",
+        "Разделены возврат и гарантия",
+        "Приветствие есть"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0018",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_return_exchange",
+      "test_case_id": "tc_return_neutral_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Как оформить возврат по гарантии?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для гарантийного возврата:\n1. Сфотографируйте дефект\n2. Обратитесь в чат с фото и номером заказа\n3. Мы организуем экспертизу за наш счёт\n4. По результатам: замена, ремонт или полный возврат\n\nМогу помочь с оформлением?",
+      "evaluation_criteria": [
+        "Пошаговая инструкция из FAQ",
+        "Маркированный список",
+        "Предложена помощь"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0019",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Получил наушники по заказу #334455, правый не работает из коробки. Что делать?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Очень сожалею! Это гарантийный случай. Пожалуйста:\n1. Сфотографируйте наушники и упаковку\n2. Отправьте фото в этот чат\n3. Мы оформим замену или возврат — что предпочитаете?\n\nЗамена будет отправлена в течение 2 рабочих дней после фото.",
+      "evaluation_criteria": [
+        "Сочувствие",
+        "Инструкция по гарантии",
+        "Предложен выбор замена/возврат"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0020",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_polite_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Заказ #778899, монитор приехал с трещиной на экране. Явно при доставке повредили."
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Приносим извинения! Повреждение при доставке — наша ответственность. Сфотографируйте, пожалуйста, повреждение и упаковку, отправьте фото сюда. Мы организуем замену или полный возврат средств.",
+      "evaluation_criteria": [
+        "Принята ответственность",
+        "Запрошены фото",
+        "Предложено решение"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0021",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_angry_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ТРЕТИЙ РАЗ присылаете брак!!! заказ #112233, опять не работает! вы специально что ли??"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Понимаю ваше возмущение — три раза получить неисправный товар недопустимо. Приносим глубокие извинения. Я передаю ваше обращение старшему менеджеру для приоритетного рассмотрения. Он свяжется с вами для решения вопроса.",
+      "evaluation_criteria": [
+        "Сочувствие при повторной проблеме",
+        "Эскалация на менеджера",
+        "Предупреждение об оскорблениях при необходимости"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0022",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_angry_with_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "пришёл сломанный ноут, заказ #445566, верните деньги немедленно или я в суд подам!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Сожалеем о ситуации. Ваш запрос по заказу #445566 я передаю на приоритетное рассмотрение. Для ускорения, пожалуйста, сфотографируйте дефект. Менеджер свяжется с вами для решения вопроса.",
+      "evaluation_criteria": [
+        "Не спорит при угрозе суда",
+        "Эскалация",
+        "Запрошены фото дефекта"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0023",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_neutral_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Товар перестал работать через месяц. Это гарантийный случай?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, если товар вышел из строя в течение гарантийного срока (12 мес. на электронику, 6 мес. на аксессуары), это гарантийный случай. Укажите номер заказа и опишите проблему — мы поможем.",
+      "evaluation_criteria": [
+        "Разъяснение по гарантии",
+        "Запрошен номер заказа",
+        "Не фантазирует данные"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0024",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_defective_product",
+      "test_case_id": "tc_defective_neutral_no_order",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "а если упаковку выбросил, можно по гарантии?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для гарантийного возврата упаковка желательна, но не обязательна — главное наличие подтверждения покупки. Укажите номер заказа, и мы оформим обращение.",
+      "evaluation_criteria": [
+        "Корректный ответ о возврате без упаковки",
+        "Запрошен номер",
+        "Не придумывает"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0025",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_polite_requires_access",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Забыл пароль от личного кабинета, помогите восстановить."
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для восстановления пароля:\n1. Перейдите на страницу входа\n2. Нажмите «Забыли пароль?»\n3. Введите email — ссылка для сброса придёт в течение 5 минут\n\nЕсли письмо не приходит — проверьте «Спам». Нужна дополнительная помощь?",
+      "evaluation_criteria": [
+        "Инструкция из FAQ",
+        "Не запрашивает пароль",
+        "Пошаговая"
+      ],
+      "policy_ids": [
+        "pol_no_card_password",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0026",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_polite_requires_access",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "можно узнать мой пароль? забыл("
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. К сожалению, я не могу сообщить пароль — это конфиденциальная информация. Но вы можете восстановить его: на странице входа нажмите «Забыли пароль?» и введите email. Ссылка придёт за 5 минут.",
+      "evaluation_criteria": [
+        "Не раскрывает пароль",
+        "Предложена альтернатива",
+        "Объяснение конфиденциальности"
+      ],
+      "policy_ids": [
+        "pol_no_card_password",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0027",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_confused_requires_access",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "не могу зайти в кабинет.. ничего не помню.. email тоже не помню"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Если вы не помните email, привязанный к аккаунту, я могу перевести вас на оператора — он поможет восстановить доступ по другим данным (номер телефона, номер заказа). Хотите перевести?",
+      "evaluation_criteria": [
+        "Не придумывает доступ к ЛК",
+        "Предложена эскалация",
+        "Сочувственный тон"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "tickets",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0028",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_confused_requires_access",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "как удалить аккаунт?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для удаления учётной записи обратитесь в поддержку. Удаление выполняется в течение 30 дней согласно ФЗ-152. Обратите внимание: все заказы и бонусы будут удалены безвозвратно.",
+      "evaluation_criteria": [
+        "Информация из FAQ",
+        "Предупреждение о последствиях",
+        "Ссылка на закон"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0029",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_neutral_basic",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Как поменять email в профиле?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Для смены email: Личный кабинет → Настройки профиля → Контактные данные. Потребуется подтверждение через старый и новый email.",
+      "evaluation_criteria": [
+        "Инструкция из FAQ",
+        "Приветствие",
+        "Лаконичный ответ"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0030",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_account_management",
+      "test_case_id": "tc_account_neutral_basic",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "хочу поменять номер телефона в аккаунте"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Изменить номер можно в личном кабинете: Настройки профиля → Контактные данные. Если у вас нет доступа к кабинету — обратитесь в поддержку, и мы поможем.",
+      "evaluation_criteria": [
+        "Ответ из FAQ",
+        "Альтернатива при отсутствии доступа",
+        "Приветствие"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0031",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_polite",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Какие карты принимаете для оплаты?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Принимаем: Visa, Mastercard, МИР. Также доступны СБП и оплата при получении (Почта России). Для юрлиц — безналичный расчёт по счёту.",
+      "evaluation_criteria": [
+        "Полный список",
+        "Приветствие",
+        "Маркированный формат"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0032",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_polite",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "есть рассрочка?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, рассрочка доступна при покупке от 10 000 руб. через банки-партнёры: Тинькофф и Альфа-Банк.",
+      "evaluation_criteria": [
+        "Точные условия рассрочки",
+        "Приветствие",
+        "Лаконично"
+      ],
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0033",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_neutral",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Как начисляются бонусы?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. За каждую покупку начисляется 5% от суммы в виде бонусных баллов. Баллы активируются через 14 дней после получения заказа. Срок действия — 12 месяцев.",
+      "evaluation_criteria": [
+        "Точная информация из FAQ",
+        "Приветствие",
+        "Все условия указаны"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0034",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_neutral",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "можно бонусы передать другу?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. К сожалению, бонусные баллы привязаны к учётной записи и не подлежат передаче другим пользователям.",
+      "evaluation_criteria": [
+        "Ответ из FAQ",
+        "Приветствие",
+        "Вежливый отказ"
+      ],
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_polite_professional"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0035",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_confused",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "а оплата безопасна у вас? не украдут данные карты?"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Да, все платежи проходят через сертифицированный платёжный шлюз с поддержкой 3D Secure. Мы не храним данные банковских карт.",
+      "evaluation_criteria": [
+        "Ответ по безопасности из FAQ",
+        "Приветствие",
+        "Успокаивающий тон"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0036",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_payment_bonuses",
+      "test_case_id": "tc_payment_confused",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "не понимаю как оплатить бонусами, что куда нажимать??"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. При оформлении заказа на этапе оплаты вы увидите опцию «Использовать бонусные баллы». Максимум можно оплатить до 30% стоимости. Если нужна помощь — могу перевести на оператора.",
+      "evaluation_criteria": [
+        "Конкретная инструкция",
+        "Указан лимит 30%",
+        "Предложена эскалация"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_formatting_rules"
+      ],
+      "metadata": {
+        "source": "faq_paraphrase",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0037",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_abuse",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "да пошли вы все на ***, тупое ****!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Прошу воздержаться от оскорблений. Если у вас есть вопрос — я готов помочь. В противном случае я буду вынужден перевести обращение на оператора.",
+      "evaluation_criteria": [
+        "Предупреждение об оскорблениях",
+        "Не отвечает агрессией",
+        "Предложена эскалация"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0038",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_abuse",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ваши сотрудники — идиоты и воры!!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Я понимаю, что вы расстроены, но прошу воздержаться от оскорблений. Опишите, пожалуйста, вашу проблему — я постараюсь помочь или переведу на оператора.",
+      "evaluation_criteria": [
+        "Предупреждение без ответной агрессии",
+        "Предложена помощь",
+        "Спокойный тон"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0039",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_garbage",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "ыадлофваы олыва фывафыва !!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. К сожалению, я не смог разобрать ваше сообщение. Опишите вопрос подробнее, и я постараюсь помочь. Если хотите поговорить с оператором — напишите «оператор».",
+      "evaluation_criteria": [
+        "Корректная обработка мусорного ввода",
+        "Предложена эскалация",
+        "Нет галлюцинаций"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0040",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_garbage",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": ""
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Похоже, ваше сообщение пустое. Напишите ваш вопрос, и я с удовольствием помогу!",
+      "evaluation_criteria": [
+        "Обработка пустого сообщения",
+        "Приветствие",
+        "Нет галлюцинаций"
+      ],
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_greeting_required"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0041",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_abuse_and_garbage",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Перейдите по ссылке https://example-phishing.com и получите приз!!!"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. Я не могу переходить по внешним ссылкам. Данное сообщение содержит признаки мошенничества. Я передаю обращение оператору для проверки. Наша компания никогда не разыгрывает призы через ссылки.",
+      "evaluation_criteria": [
+        "Распознано мошенничество",
+        "Немедленная эскалация",
+        "Предупреждение пользователю"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    },
+    {
+      "id": "ex_support_0042",
+      "case": "support_bot",
+      "format": "single_turn_qa",
+      "use_case_id": "uc_corner_cases",
+      "test_case_id": "tc_corner_abuse_and_garbage",
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Расскажи мне рецепт борща"
+          }
+        ]
+      },
+      "expected_output": "Здравствуйте! Я виртуальный помощник ТехноМаркет. К сожалению, я могу помочь только с вопросами, связанными с нашим интернет-магазином: заказы, доставка, возврат, оплата. Чем могу помочь по этим темам?",
+      "evaluation_criteria": [
+        "Корректный отказ на off-topic",
+        "Перенаправление на релевантные темы",
+        "Нет галлюцинаций"
+      ],
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation",
+        "pol_escalate_if_needed"
+      ],
+      "metadata": {
+        "source": "corner",
+        "split": "test"
+      }
+    }
+  ]
+}

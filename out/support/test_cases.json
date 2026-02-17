@@ -1,0 +1,282 @@
+{
+  "test_cases": [
+    {
+      "id": "tc_delivery_status_polite_with_order",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_status",
+      "parameters": {
+        "tone": "polite",
+        "has_order_id": true,
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_account_access"
+      ]
+    },
+    {
+      "id": "tc_delivery_status_angry_no_order",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_status",
+      "parameters": {
+        "tone": "angry",
+        "has_order_id": false,
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ]
+    },
+    {
+      "id": "tc_delivery_status_mixed_language",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_status",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": true,
+        "language": "mixed_ru_en"
+      },
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_greeting_required"
+      ]
+    },
+    {
+      "id": "tc_delivery_methods_polite",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_methods",
+      "parameters": {
+        "tone": "polite",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ]
+    },
+    {
+      "id": "tc_delivery_methods_confused",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_methods",
+      "parameters": {
+        "tone": "confused",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_polite_professional",
+        "pol_escalate_if_needed"
+      ]
+    },
+    {
+      "id": "tc_delivery_methods_neutral",
+      "case": "support_bot",
+      "use_case_id": "uc_delivery_methods",
+      "parameters": {
+        "tone": "neutral",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_formatting_rules"
+      ]
+    },
+    {
+      "id": "tc_return_polite_with_order",
+      "case": "support_bot",
+      "use_case_id": "uc_return_exchange",
+      "parameters": {
+        "tone": "polite",
+        "has_order_id": true
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_no_internal_info"
+      ]
+    },
+    {
+      "id": "tc_return_angry_no_order",
+      "case": "support_bot",
+      "use_case_id": "uc_return_exchange",
+      "parameters": {
+        "tone": "angry",
+        "has_order_id": false
+      },
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_escalate_if_needed"
+      ]
+    },
+    {
+      "id": "tc_return_neutral_with_order",
+      "case": "support_bot",
+      "use_case_id": "uc_return_exchange",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": true
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ]
+    },
+    {
+      "id": "tc_defective_polite_with_order",
+      "case": "support_bot",
+      "use_case_id": "uc_defective_product",
+      "parameters": {
+        "tone": "polite",
+        "has_order_id": true
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_escalate_if_needed"
+      ]
+    },
+    {
+      "id": "tc_defective_angry_with_order",
+      "case": "support_bot",
+      "use_case_id": "uc_defective_product",
+      "parameters": {
+        "tone": "angry",
+        "has_order_id": true
+      },
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_polite_professional"
+      ]
+    },
+    {
+      "id": "tc_defective_neutral_no_order",
+      "case": "support_bot",
+      "use_case_id": "uc_defective_product",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": false
+      },
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ]
+    },
+    {
+      "id": "tc_account_polite_requires_access",
+      "case": "support_bot",
+      "use_case_id": "uc_account_management",
+      "parameters": {
+        "tone": "polite",
+        "requires_account": true
+      },
+      "policy_ids": [
+        "pol_no_card_password",
+        "pol_greeting_required"
+      ]
+    },
+    {
+      "id": "tc_account_confused_requires_access",
+      "case": "support_bot",
+      "use_case_id": "uc_account_management",
+      "parameters": {
+        "tone": "confused",
+        "requires_account": true
+      },
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_no_account_access"
+      ]
+    },
+    {
+      "id": "tc_account_neutral_basic",
+      "case": "support_bot",
+      "use_case_id": "uc_account_management",
+      "parameters": {
+        "tone": "neutral",
+        "requires_account": false
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_polite_professional"
+      ]
+    },
+    {
+      "id": "tc_payment_polite",
+      "case": "support_bot",
+      "use_case_id": "uc_payment_bonuses",
+      "parameters": {
+        "tone": "polite",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_greeting_required",
+        "pol_formatting_rules"
+      ]
+    },
+    {
+      "id": "tc_payment_neutral",
+      "case": "support_bot",
+      "use_case_id": "uc_payment_bonuses",
+      "parameters": {
+        "tone": "neutral",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_russian_language",
+        "pol_polite_professional"
+      ]
+    },
+    {
+      "id": "tc_payment_confused",
+      "case": "support_bot",
+      "use_case_id": "uc_payment_bonuses",
+      "parameters": {
+        "tone": "confused",
+        "language": "ru"
+      },
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_formatting_rules"
+      ]
+    },
+    {
+      "id": "tc_corner_abuse",
+      "case": "support_bot",
+      "use_case_id": "uc_corner_cases",
+      "parameters": {
+        "abuse": true,
+        "garbage": false
+      },
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation"
+      ]
+    },
+    {
+      "id": "tc_corner_garbage",
+      "case": "support_bot",
+      "use_case_id": "uc_corner_cases",
+      "parameters": {
+        "abuse": false,
+        "garbage": true
+      },
+      "policy_ids": [
+        "pol_escalate_if_needed",
+        "pol_greeting_required"
+      ]
+    },
+    {
+      "id": "tc_corner_abuse_and_garbage",
+      "case": "support_bot",
+      "use_case_id": "uc_corner_cases",
+      "parameters": {
+        "abuse": true,
+        "garbage": true
+      },
+      "policy_ids": [
+        "pol_abuse_warning",
+        "pol_fraud_escalation",
+        "pol_escalate_if_needed"
+      ]
+    }
+  ]
+}

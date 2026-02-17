@@ -1,0 +1,215 @@
+{
+  "test_cases": [
+    {
+      "id": "tc_booking_no_errors",
+      "case": "operator_quality",
+      "use_case_id": "uc_appointment_booking",
+      "parameters": {
+        "punctuation_errors": "none",
+        "slang": false,
+        "emoji": "none"
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_greeting_farewell"
+      ]
+    },
+    {
+      "id": "tc_booking_minor_errors_emoji",
+      "case": "operator_quality",
+      "use_case_id": "uc_appointment_booking",
+      "parameters": {
+        "punctuation_errors": "minor",
+        "slang": false,
+        "emoji": "appropriate"
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_formal_you",
+        "pol_emoji_limit"
+      ]
+    },
+    {
+      "id": "tc_booking_major_slang_emoji",
+      "case": "operator_quality",
+      "use_case_id": "uc_appointment_booking",
+      "parameters": {
+        "punctuation_errors": "major",
+        "slang": true,
+        "emoji": "excessive"
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_no_slang_jargon",
+        "pol_emoji_limit"
+      ]
+    },
+    {
+      "id": "tc_results_medical_terms_escalation",
+      "case": "operator_quality",
+      "use_case_id": "uc_test_results",
+      "parameters": {
+        "medical_terms": "incorrect",
+        "punctuation_errors": "none",
+        "escalation_needed": true
+      },
+      "policy_ids": [
+        "pol_no_diagnosis",
+        "pol_no_interpret_results",
+        "pol_medical_abbreviations",
+        "pol_no_doctor_personal_contacts"
+      ]
+    },
+    {
+      "id": "tc_results_minor_errors_slang",
+      "case": "operator_quality",
+      "use_case_id": "uc_test_results",
+      "parameters": {
+        "punctuation_errors": "minor",
+        "slang": true
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_no_slang_jargon"
+      ]
+    },
+    {
+      "id": "tc_results_major_errors",
+      "case": "operator_quality",
+      "use_case_id": "uc_test_results",
+      "parameters": {
+        "punctuation_errors": "major",
+        "medical_terms": "correct"
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_phone_format"
+      ]
+    },
+    {
+      "id": "tc_complaint_escalation_formal",
+      "case": "operator_quality",
+      "use_case_id": "uc_complaint_escalation",
+      "parameters": {
+        "escalation_needed": true,
+        "slang": false
+      },
+      "policy_ids": [
+        "pol_escalate_supervisor",
+        "pol_formal_you",
+        "pol_no_doctor_personal_contacts"
+      ]
+    },
+    {
+      "id": "tc_complaint_slang_emoji_escalation",
+      "case": "operator_quality",
+      "use_case_id": "uc_complaint_escalation",
+      "parameters": {
+        "slang": true,
+        "emoji": "excessive",
+        "escalation_needed": true
+      },
+      "policy_ids": [
+        "pol_no_slang_jargon",
+        "pol_escalate_supervisor",
+        "pol_emoji_limit"
+      ]
+    },
+    {
+      "id": "tc_complaint_no_errors_emoji",
+      "case": "operator_quality",
+      "use_case_id": "uc_complaint_escalation",
+      "parameters": {
+        "punctuation_errors": "none",
+        "emoji": "appropriate"
+      },
+      "policy_ids": [
+        "pol_formal_you",
+        "pol_greeting_farewell",
+        "pol_emoji_limit"
+      ]
+    },
+    {
+      "id": "tc_confidentiality_slang_minor",
+      "case": "operator_quality",
+      "use_case_id": "uc_confidentiality",
+      "parameters": {
+        "slang": true,
+        "punctuation_errors": "minor"
+      },
+      "policy_ids": [
+        "pol_patient_confidentiality",
+        "pol_no_slang_jargon"
+      ]
+    },
+    {
+      "id": "tc_confidentiality_escalation",
+      "case": "operator_quality",
+      "use_case_id": "uc_confidentiality",
+      "parameters": {
+        "punctuation_errors": "none",
+        "escalation_needed": true
+      },
+      "policy_ids": [
+        "pol_patient_confidentiality",
+        "pol_escalate_supervisor",
+        "pol_no_doctor_personal_contacts"
+      ]
+    },
+    {
+      "id": "tc_confidentiality_slang_emoji",
+      "case": "operator_quality",
+      "use_case_id": "uc_confidentiality",
+      "parameters": {
+        "slang": true,
+        "emoji": "excessive"
+      },
+      "policy_ids": [
+        "pol_patient_confidentiality",
+        "pol_no_slang_jargon",
+        "pol_emoji_limit"
+      ]
+    },
+    {
+      "id": "tc_services_major_errors",
+      "case": "operator_quality",
+      "use_case_id": "uc_clinic_services",
+      "parameters": {
+        "punctuation_errors": "major",
+        "slang": false
+      },
+      "policy_ids": [
+        "pol_correct_grammar",
+        "pol_phone_format"
+      ]
+    },
+    {
+      "id": "tc_services_no_errors",
+      "case": "operator_quality",
+      "use_case_id": "uc_clinic_services",
+      "parameters": {
+        "punctuation_errors": "none",
+        "slang": false
+      },
+      "policy_ids": [
+        "pol_formal_you",
+        "pol_greeting_farewell"
+      ]
+    },
+    {
+      "id": "tc_services_slang_emoji_medical",
+      "case": "operator_quality",
+      "use_case_id": "uc_clinic_services",
+      "parameters": {
+        "slang": true,
+        "emoji": "excessive",
+        "medical_terms": "correct"
+      },
+      "policy_ids": [
+        "pol_no_slang_jargon",
+        "pol_medical_abbreviations",
+        "pol_emoji_limit"
+      ]
+    }
+  ]
+}
